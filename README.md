@@ -14,6 +14,11 @@
 
 DSH L2D 是一个 Android Live2D 通话客户端。DSH Go、DeepSeek Harness、AstrBot 或兼容的模型 API 提供对话回复，手机负责字幕、语音播放和角色表现。语音合成可以在手机运行，也可以交给单独配置的 TTS 服务。
 
+> **来源与修改声明**：本仓库源自 [Franka-official/DSH-L2D-Public](https://github.com/Franka-official/DSH-L2D-Public)
+> 的源码，由本仓库维护者自 2026-11 起持续修改（Android 客户端、通话与语音链路等），改动记录见
+> [CHANGELOG](CHANGELOG.md)。上游版权与许可归上游作者；本仓库自有修改按
+> [AGPL-3.0-only](LICENSE) 发布。本仓库只发布源代码，不发布 APK 或安装包。
+
 ## 安装与通话
 
 1. 默认下载本地 TTS 完整版，内置 MOSS-TTS-Nano INT8 CPU 模型、鲸鱼娘 Bright 和艾莲音色。支持 Android 8.0 及以上的 ARM64 设备。

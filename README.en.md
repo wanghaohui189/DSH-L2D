@@ -14,6 +14,13 @@
 
 DSH L2D is an Android calling client for Live2D characters. DSH Go, DeepSeek Harness, AstrBot or a compatible model API supplies the replies. The phone handles subtitles, speech playback and character animation. Speech can be synthesized on the phone or by a separately configured TTS service.
 
+> **Source and modification notice**: this repository is derived from the source of
+> [Franka-official/DSH-L2D-Public](https://github.com/Franka-official/DSH-L2D-Public) and has been
+> modified by this repository's maintainer since 2026-11 (Android client, call and speech paths and
+> more). See [CHANGELOG](CHANGELOG.md) for the change history. Upstream copyright and license remain
+> with the upstream authors; project-owned modifications are released under [AGPL-3.0-only](LICENSE).
+> This repository publishes source code only. It does not distribute APKs or installers.
+
 ## Install and make a call
 
 1. Start with Local TTS Full. It bundles the MOSS-TTS-Nano INT8 CPU model and the Whale Bright and Ellen voices. The APK supports ARM64 devices running Android 8.0 or later.
