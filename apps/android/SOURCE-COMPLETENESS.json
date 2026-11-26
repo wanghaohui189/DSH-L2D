@@ -27,7 +27,8 @@
   },
   "package_device_install_verified_at_finalize": false,
   "historical_snapshot": "provenance/source-completeness-pre-beta2.json",
-  "public_verification": "../../docs/verification/beta38.json",
+  "public_verification": null,
+  "public_verification_note": "Device verification artifacts (beta38) are not published in the public tree; the record remains in the private provenance store.",
   "extra_hashes_computed": false,
   "main_application_upgrade": {
     "verified": true,
