@@ -26,6 +26,14 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
 
+    <!-- 2026-11-26：唤醒来电入口只对「与本人同一签名」的伴侣 App 开放。
+         以前靠一个写死在源码里的常量 token 当口令，源码一开源就等于公开——同机任意 App
+         都能拉起全屏来电页。改成 signature 级权限后，只有用同一把钥匙签名的 App 能发这条
+         广播；注入 fake call 的攻击面消失，功能不变（伴侣 App 签名相同，安装即自动获得）。 -->
+    <permission
+        android:name="com.prts.client.permission.WAKE_REQUEST"
+        android:protectionLevel="signature" />
+
     <queries>
         <package android:name="io.github.ccch1mneyyy.dsh_app" />
     </queries>
@@ -70,19 +78,17 @@
             android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|uiMode|fontScale|locale|keyboardHidden"
             android:showWhenLocked="true"
             android:turnScreenOn="true" />
+        <!-- 2026-11-26：不再导出。以前这里 exported=true + WAKE_CALL 过滤器，等于任何 App
+             都能直接拉起全屏「来电」页（token 校验只在广播入口，绕不过 activity 直启）。
+             现在只由本进程（PresenceService / CallKeepAliveService / 通知 PendingIntent）显式启动。 -->
         <activity
             android:name=".ui.WakeCallActivity"
-            android:exported="true"
+            android:exported="false"
             android:excludeFromRecents="true"
             android:noHistory="true"
             android:showWhenLocked="true"
             android:turnScreenOn="true"
-            android:theme="@style/Theme.PRTS">
-            <intent-filter>
-                <action android:name="com.prts.client.action.WAKE_CALL" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.PRTS" />
 
         <service android:name=".call.CallKeepAliveService" android:exported="false"
             android:foregroundServiceType="specialUse|microphone">
@@ -116,7 +122,11 @@
             <meta-data android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
         </service>
-        <receiver android:name=".call.WakeRequestReceiver" android:exported="true">
+        <!-- 2026-11-26：仍然导出（伴侣 App 要用广播拉起你来电），但只有与本人同签名的 App
+             持有 com.prts.client.permission.WAKE_REQUEST 才能投递，其他人发过来被系统拦掉。 -->
+        <receiver android:name=".call.WakeRequestReceiver"
+            android:exported="true"
+            android:permission="com.prts.client.permission.WAKE_REQUEST">
             <intent-filter>
                 <action android:name="com.prts.client.action.WAKE_REQUEST" />
             </intent-filter>

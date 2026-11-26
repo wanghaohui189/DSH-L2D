@@ -32,14 +32,14 @@ import com.prts.client.BuildConfig
 class WakeCallActivity : AppCompatActivity() {
     companion object {
         const val ACTION_WAKE_CALL = "com.prts.client.action.WAKE_CALL"
-        const val EXTRA_WAKE_TOKEN = "com.prts.client.extra.WAKE_TOKEN"
         /** What the user actually said after the wake word (may be empty). */
         const val EXTRA_WAKE_TEXT = "com.prts.client.extra.WAKE_TEXT"
         /** Why she called: "silence" / "followup"（只用于来电页文案，不发给服务端）. */
         const val EXTRA_WAKE_REASON = "com.prts.client.extra.WAKE_REASON"
 
-        /** Shared with the companion app source; not a security boundary. */
-        const val WAKE_TOKEN = "whale-wake-2026"
+        // 2026-11-26：原来的 WAKE_TOKEN 常量已删除。它只防「同机 App 乱拉来电页」，而源码一开源
+        // 就等于公开；现在改为 Manifest 的 signature 级权限（见 AndroidManifest.xml）+ activity
+        // 不导出，口令本身不再需要，也不该留在公开源码里。
 
         /** 第 1 项（2026-11-20）：挂断/超时/划掉来电页时，包内广播给 PresenceService，
          *  由它走常驻 socket 回报服务端当场结单，不用再等 5 分钟 grace。 */
@@ -52,7 +52,6 @@ class WakeCallActivity : AppCompatActivity() {
         fun intent(ctx: Context, said: String = "", reason: String = ""): Intent =
             Intent(ctx, WakeCallActivity::class.java)
                 .setAction(ACTION_WAKE_CALL)
-                .putExtra(EXTRA_WAKE_TOKEN, WAKE_TOKEN)
                 .putExtra(EXTRA_WAKE_TEXT, said)
                 .putExtra(EXTRA_WAKE_REASON, reason)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
@@ -77,7 +76,9 @@ class WakeCallActivity : AppCompatActivity() {
             window.addFlags(android.view.WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED or
                 android.view.WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
         }
-        if (intent?.getStringExtra(EXTRA_WAKE_TOKEN) != WAKE_TOKEN || isFinishing) {
+        // 2026-11-26：这里原来的 token 比对已删除。activity 现在 exported=false（见 Manifest），
+        // 外部 App 既不能直启它、也不能绕过 receiver 的 signature 权限，口令校验没有对象了。
+        if (isFinishing) {
             finish()
             return
         }

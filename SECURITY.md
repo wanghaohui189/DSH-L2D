@@ -10,3 +10,14 @@
 
 官方配置说明：
 https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/configure-vulnerability-reporting/configure-for-a-repository
+
+## 唤醒来电的信任边界（2026-11-26 起）
+
+- `WakeRequestReceiver` 仍然导出（伴侣应用要靠广播拉起全屏来电），但声明了
+  `android:permission="com.prts.client.permission.WAKE_REQUEST"`，`protectionLevel="signature"`：
+  只有与 L2D App 用同一把钥匙签名的应用能投递，其他应用会被系统直接拒绝。
+- `WakeCallActivity` 不再导出，只能由本进程（`PresenceService`、`CallKeepAliveService`、
+  来电通知的 `PendingIntent`）显式启动。
+- 旧版本把常量 `WAKE_TOKEN` 当口令；源码公开后该常量等于公开，不能当作安全边界，已删除。
+  自己编译的用户若要启用伴侣唤醒，需要用同一 keystore 构建伴侣应用，并在其 Manifest 里声明
+  `<uses-permission android:name="com.prts.client.permission.WAKE_REQUEST" />`。
