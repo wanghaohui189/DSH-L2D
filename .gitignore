@@ -1,0 +1,61 @@
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+**/local.properties
+**/signing.properties
+**/signing.env
+**/*.keystore
+**/*.jks
+**/*.pem
+**/*.key
+
+# Generated build output and runtime state
+**/.gradle/
+**/.cxx/
+**/.native-deps/
+**/.runtime-assets/
+**/asset-provisioning.json
+**/build/
+**/node_modules/
+**/__pycache__/
+**/*.pyc
+**/*.part
+**/*.writing
+private/
+runtime-data/
+logs/
+
+# Binary release artifacts and separately provisioned assets
+*.apk
+*.aab
+*.so
+*.aar
+*.mnn
+*.onnx
+*.gguf
+models/
+assets-private/
+
+# The relay trust anchor is a public certificate (no private key); it must ship with the app.
+!apps/android/app/src/main/res/raw/relay_ca.pem
+
+# ---- publish hygiene (added 2026-11-26) ----
+*.log
+*.png
+*.bak-*
+assets-stage2/
+assets-runtime2/
+sentencepiece-src/
+apps/android/DSH-L2D-Public/
+assets/touch-voices/
+**/touch-voices/
+dsh_write_probe.txt
+relay-secrets.json
+**/relay-secrets.json
+*.apk
+*.aab
+*.jks
+*.keystore
+local.properties
+.signing/

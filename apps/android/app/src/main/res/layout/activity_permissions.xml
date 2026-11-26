@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootPermissions" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/ui_background">
+    <ImageView android:layout_width="match_parent" android:layout_height="match_parent"
+        android:scaleType="centerCrop" android:src="@drawable/ui_bg_aurora" android:contentDescription="@null"/>
+    <View android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="@drawable/ui_start_scrim" android:importantForAccessibility="no"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical" android:paddingHorizontal="16dp" android:paddingTop="18dp" android:paddingBottom="12dp">
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="44dp"
+            android:orientation="horizontal" android:gravity="center_vertical">
+            <TextView android:id="@+id/btnPermissionsBack" android:layout_width="44dp" android:layout_height="44dp"
+                android:gravity="center" android:text="‹" android:textColor="@color/ui_text" android:textSize="27sp"
+                android:background="@drawable/ui_glass_button" android:contentDescription="返回"/>
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+                android:layout_marginStart="12dp" android:text="权限" android:textColor="@color/ui_text"
+                android:textSize="19sp" android:fontFamily="sans-serif-medium"/>
+            <TextView android:id="@+id/permissionsStatus" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="连接中…" android:textColor="@color/ui_text_secondary" android:textSize="11sp"/>
+        </LinearLayout>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="14dp" android:lineSpacingExtra="3dp"
+            android:text="这些开关决定小鲸鱼能看到什么、能做什么。关掉的能力她不会用，也不会偷偷用。系统权限没给时，对应开关会显示「去授权」。"
+            android:textColor="@color/ui_text_secondary" android:textSize="12sp"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:orientation="horizontal">
+            <TextView android:id="@+id/btnPermissionsAllOff" android:layout_width="0dp" android:layout_height="40dp"
+                android:layout_weight="1" android:gravity="center" android:text="全部关闭"
+                android:background="@drawable/ui_chip" android:textColor="@color/ui_text" android:textSize="13sp"/>
+            <TextView android:id="@+id/btnPermissionsDefaults" android:layout_width="0dp" android:layout_height="40dp"
+                android:layout_marginStart="10dp" android:layout_weight="1" android:gravity="center" android:text="恢复默认"
+                android:background="@drawable/ui_chip" android:textColor="@color/ui_text" android:textSize="13sp"/>
+        </LinearLayout>
+
+        <ScrollView android:id="@+id/permissionsScroll" android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:layout_marginTop="10dp" android:scrollbars="none"
+            android:fadingEdgeLength="16dp" android:requiresFadingEdge="vertical">
+            <LinearLayout android:id="@+id/permissionRows" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:paddingBottom="8dp"/>
+        </ScrollView>
+
+        <TextView android:id="@+id/btnPermissionsAudit" android:layout_width="match_parent" android:layout_height="42dp"
+            android:gravity="center" android:text="查看变更记录" android:background="@drawable/ui_glass_panel"
+            android:textColor="@color/ui_text_secondary" android:textSize="12sp"/>
+    </LinearLayout>
+</FrameLayout>

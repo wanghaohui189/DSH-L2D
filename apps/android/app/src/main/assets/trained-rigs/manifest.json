@@ -1,0 +1,383 @@
+{
+  "schema": "dsh-trained-rigs-1",
+  "revision": "rig-rbf-run2-20261103+gestures-c4c671aa",
+  "runtime": "baked_linear_Cubism_curves_not_neural_inference",
+  "models": {
+    "ellen": {
+      "channels": {
+        "ParamAngleX": {
+          "id": "ParamAngleX",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamAngleY": {
+          "id": "ParamAngleY",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamAngleZ": {
+          "id": "ParamAngleZ",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamBodyAngleX": {
+          "id": "ParamBodyAngleX",
+          "minimum": -10.0,
+          "default": 0.0,
+          "maximum": 10.0
+        },
+        "ParamBodyAngleY": {
+          "id": "ParamBodyAngleY",
+          "minimum": -10.0,
+          "default": 0.0,
+          "maximum": 10.0
+        },
+        "ParamBodyAngleZ": {
+          "id": "ParamBodyAngleZ",
+          "minimum": -10.0,
+          "default": 0.0,
+          "maximum": 10.0
+        }
+      },
+      "motions": {
+        "call:nod": {
+          "file": "ellen/nod.motion3.json",
+          "bytes": 26314,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:nod-wide": {
+          "file": "ellen/nod-wide.motion3.json",
+          "bytes": 26340,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:shake": {
+          "file": "ellen/shake.motion3.json",
+          "bytes": 26420,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:shake-wide": {
+          "file": "ellen/shake-wide.motion3.json",
+          "bytes": 26474,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:bow": {
+          "file": "ellen/bow.motion3.json",
+          "bytes": 26632,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:bow-wide": {
+          "file": "ellen/bow-wide.motion3.json",
+          "bytes": 26685,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:sway": {
+          "file": "ellen/sway.motion3.json",
+          "bytes": 32859,
+          "parameter_ids": [
+            "ParamAngleZ",
+            "ParamBodyAngleZ"
+          ]
+        },
+        "call:sway-wide": {
+          "file": "ellen/sway-wide.motion3.json",
+          "bytes": 32859,
+          "parameter_ids": [
+            "ParamAngleZ",
+            "ParamBodyAngleZ"
+          ]
+        }
+      }
+    },
+    "whale": {
+      "channels": {
+        "ParamAngleX": {
+          "id": "AngleX",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamAngleY": {
+          "id": "AngleY",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamAngleZ": {
+          "id": "AngleZ",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamBodyAngleX": {
+          "id": "PositionX",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamBodyAngleY": {
+          "id": "LeanInput",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        },
+        "ParamBodyAngleZ": {
+          "id": "PositionZ",
+          "minimum": -30.0,
+          "default": 0.0,
+          "maximum": 30.0
+        }
+      },
+      "motions": {
+        "call:bow": {
+          "file": "whale/bow.motion3.json",
+          "bytes": 26807,
+          "parameter_ids": [
+            "AngleY",
+            "LeanInput"
+          ]
+        },
+        "call:bow-wide": {
+          "file": "whale/bow-wide.motion3.json",
+          "bytes": 26855,
+          "parameter_ids": [
+            "AngleY",
+            "LeanInput"
+          ]
+        },
+        "call:lean-in": {
+          "file": "whale/lean-in.motion3.json",
+          "bytes": 3557,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:lean-in-wide": {
+          "file": "whale/lean-in-wide.motion3.json",
+          "bytes": 13072,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamAngleZ",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:look-around": {
+          "file": "whale/look-around.motion3.json",
+          "bytes": 4458,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:look-around-wide": {
+          "file": "whale/look-around-wide.motion3.json",
+          "bytes": 17260,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamAngleZ",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:look-up": {
+          "file": "whale/look-up.motion3.json",
+          "bytes": 3199,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:look-up-wide": {
+          "file": "whale/look-up-wide.motion3.json",
+          "bytes": 7338,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:nod": {
+          "file": "whale/nod.motion3.json",
+          "bytes": 13375,
+          "parameter_ids": [
+            "AngleY"
+          ]
+        },
+        "call:nod-twice": {
+          "file": "whale/nod-twice.motion3.json",
+          "bytes": 3583,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:nod-twice-wide": {
+          "file": "whale/nod-twice-wide.motion3.json",
+          "bytes": 7867,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:nod-wide": {
+          "file": "whale/nod-wide.motion3.json",
+          "bytes": 26422,
+          "parameter_ids": [
+            "AngleY",
+            "LeanInput"
+          ]
+        },
+        "call:shake": {
+          "file": "whale/shake.motion3.json",
+          "bytes": 26433,
+          "parameter_ids": [
+            "AngleX",
+            "PositionX"
+          ]
+        },
+        "call:shake-wide": {
+          "file": "whale/shake-wide.motion3.json",
+          "bytes": 26621,
+          "parameter_ids": [
+            "AngleX",
+            "PositionX"
+          ]
+        },
+        "call:shiver": {
+          "file": "whale/shiver.motion3.json",
+          "bytes": 2138,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:shiver-wide": {
+          "file": "whale/shiver-wide.motion3.json",
+          "bytes": 6789,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamAngleZ",
+            "ParamBodyAngleX"
+          ]
+        },
+        "call:shy": {
+          "file": "whale/shy.motion3.json",
+          "bytes": 6770,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamAngleZ",
+            "ParamBodyAngleX",
+            "ParamBodyAngleY"
+          ]
+        },
+        "call:shy-wide": {
+          "file": "whale/shy-wide.motion3.json",
+          "bytes": 21585,
+          "parameter_ids": [
+            "ParamAngleY",
+            "ParamAngleZ",
+            "ParamBodyAngleX",
+            "ParamBodyAngleY",
+            "ParamBodyAngleZ"
+          ]
+        },
+        "call:sway": {
+          "file": "whale/sway.motion3.json",
+          "bytes": 32946,
+          "parameter_ids": [
+            "AngleZ",
+            "PositionZ"
+          ]
+        },
+        "call:sway-wide": {
+          "file": "whale/sway-wide.motion3.json",
+          "bytes": 33071,
+          "parameter_ids": [
+            "AngleZ",
+            "PositionZ"
+          ]
+        },
+        "call:tilt": {
+          "file": "whale/tilt.motion3.json",
+          "bytes": 3179,
+          "parameter_ids": [
+            "ParamAngleZ",
+            "ParamBodyAngleZ"
+          ]
+        },
+        "call:tilt-wide": {
+          "file": "whale/tilt-wide.motion3.json",
+          "bytes": 14488,
+          "parameter_ids": [
+            "ParamAngleX",
+            "ParamAngleZ",
+            "ParamBodyAngleX",
+            "ParamBodyAngleZ"
+          ]
+        }
+      }
+    }
+  },
+  "provenance": {
+    "teacher_labels": "reviewed_app_call_motions_not_human_motion_annotation",
+    "method": "49_basis_Gaussian_RBF_ridge_fit_fixed_endpoints",
+    "training_run": "performance-training26/rig/run2",
+    "heldout_phase_intervals": [
+      [
+        0.23,
+        0.27
+      ],
+      [
+        0.61,
+        0.65
+      ]
+    ],
+    "fresh_test_intensities": [
+      0.31,
+      0.59,
+      0.87
+    ],
+    "fresh_worst_rmse_span": 0.00026680922555863016,
+    "fresh_worst_max_abs_span": 0.0007106299076304741,
+    "bake_worst_max_abs_span": 0.0001577016254082982,
+    "perceptual_or_visual_validation_claimed": false,
+    "arm_FSM_replaced": false,
+    "touch_variety_20261116": {
+      "scope": "whale non-wide call motions only (the touch path)",
+      "axis_split": {
+        "nod": "head pitch only - LeanInput dropped",
+        "bow": "head pitch + body pitch - unchanged",
+        "shake": "head yaw - AngleX deepened, PositionX weakened",
+        "sway": "head roll - AngleZ deepened, PositionZ weakened"
+      },
+      "applied_peaks": {
+        "nod.AngleY": -16.0,
+        "shake.AngleX": 26.0,
+        "shake.PositionX": 4.0,
+        "sway.AngleZ": 16.0,
+        "sway.PositionZ": 3.5
+      },
+      "method": "uniform amplitude rescale plus channel drop on the run2 baked curves; no refit",
+      "visual_validation_claimed": false
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DSH L2D</string>
+    <string name="start_call">开始通话</string>
+    <string name="settings">设置</string>
+    <string name="server_addr">服务器地址</string>
+    <string name="config_pick">配置选择</string>
+    <string name="end_call">挂断</string>
+    <string name="hint_type">说点什么…</string>
+    <string name="accessibility_description">让小鲸鱼在你打开「手机控制」时能看到当前界面。默认关闭；只有你在权限页打开并在这里启用后才生效。</string>
+</resources>
