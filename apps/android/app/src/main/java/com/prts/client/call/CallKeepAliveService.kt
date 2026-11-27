@@ -280,7 +280,7 @@ class CallKeepAliveService : Service() {
                     Log.i("PRTS-Call", "probe ws open code=${response.code}")
                 }
                 override fun onMessage(webSocket: okhttp3.WebSocket, text: String) {
-                    Log.i("PRTS-Call", "probe ws message ${text.take(80)}")
+                    Log.i("PRTS-Call", "probe ws message len=${text.length}")
                 }
                 override fun onClosed(webSocket: okhttp3.WebSocket, code: Int, reason: String) {
                     Log.i("PRTS-Call", "probe ws closed code=$code reason=$reason")

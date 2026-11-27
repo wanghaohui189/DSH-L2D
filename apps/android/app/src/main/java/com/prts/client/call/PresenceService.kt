@@ -17,6 +17,7 @@ import android.net.NetworkRequest
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import com.prts.client.net.ConnectionSettings
 import com.prts.client.ui.WakeCallActivity
@@ -229,6 +230,7 @@ class PresenceService : Service() {
             }
             val ws = socket ?: continue
             if (!alive) break
+            if (!notificationsAllowed()) continue
             val fresh = NotificationFeed.since(lastNoticeAt)
             if (fresh.isEmpty()) continue
             val arr = org.json.JSONArray()
@@ -247,6 +249,11 @@ class PresenceService : Service() {
         }
         Log.i(TAG, "notice pump exited")
     }
+
+    /** 本地门：用户撤回「通知使用权」后立即停止上传（服务端那道门只做第二层）。 */
+    private fun notificationsAllowed(): Boolean = runCatching {
+        NotificationManagerCompat.getEnabledListenerPackages(this).contains(packageName)
+    }.getOrDefault(false)
 
     private fun notification(): Notification {
         val stop = PendingIntent.getService(this, 31,
@@ -293,9 +300,9 @@ class PresenceService : Service() {
                         Log.i(TAG, "presence open code=${response.code}")
                         socketOpen = true
                         lastPongAt = System.currentTimeMillis()
-                        // 连上就补一次「最近的」通知，服务端在那头过权限门。
-                        runCatching {
-                            val recent = NotificationFeed.since(0)
+                        // 连上补一次「自上次发送后新增的」通知；本地先过通知使用权，服务端再门一次。
+                        if (notificationsAllowed()) runCatching {
+                            val recent = NotificationFeed.since(lastNoticeAt)
                             if (recent.isNotEmpty()) {
                                 val arr = org.json.JSONArray()
                                 for (item in recent) {
@@ -361,7 +368,7 @@ class PresenceService : Service() {
         lastPongAt = System.currentTimeMillis()
         val said = obj.optString("text")
         val reason = obj.optString("reason")
-        Log.i(TAG, "wake-call received reason=$reason text=$said")
+        Log.i(TAG, "wake-call received reason=$reason text_len=${said.length}")
         // 第 3 项（2026-11-20）：先回执——中继靠它区分「真送到」和「半开连接」；
         // 2 秒内没回执，服务端会按「手机没回执」算没送到（不扣次数、不记没人接）。
         val acked = sendFrame(JSONObject().put("type", "wake-ack").put("at", System.currentTimeMillis()))

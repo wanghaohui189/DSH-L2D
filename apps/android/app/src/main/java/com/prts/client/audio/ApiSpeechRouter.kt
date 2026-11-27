@@ -105,7 +105,7 @@ internal class ApiSpeechRouter(context: Context, profile: VoiceProfile,
             }
             // n = 真正交给合成的片数（与中继的 tts 行一一对应）；0 片说明整条只剩括号/表情。
             if (queued == 0) log("skip all_slices_blank gen=$ticket slices=${slices.size}")
-            else log("queued gen=$ticket n=$queued first=$firstSpeak")
+            else log("queued gen=$ticket n=$queued first_len=${firstSpeak.length}")
             changed(); pump()
         }
     }

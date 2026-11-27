@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- 2026-11-26: remote traffic must be TLS. Cleartext is allowed only for the
-     on-device loopback bridge; the relay CA is pinned below, so a user-installed
-     or system CA cannot silently impersonate the relay. -->
+<!-- 2026-11-27: remote traffic must be TLS; cleartext is allowed only for the
+     on-device loopback bridge. User-installed CAs are not trusted. The relay CA
+     below is additive: system CAs remain trusted, so this is NOT a strict pin.
+     Scoping it to the relay host needs a fixed domain (the endpoint is
+     user-configured); real pinning/rotation is tracked as a follow-up. -->
 <network-security-config>
     <base-config cleartextTrafficPermitted="false">
         <trust-anchors>

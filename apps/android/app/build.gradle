@@ -302,6 +302,7 @@ tasks.matching { it.name in ['mergeDebugAssets', 'mergeReleaseAssets'] }.configu
 
 if (bundleMoss) {
     def modelDir = file(mossModelDir)
+    def mossModelLicense = new File(modelDir, 'LICENSE')
     def payload = [
         'MOSS-TTS-Nano-100M-ONNX/browser_poc_manifest.json': 503354L,
         'MOSS-TTS-Nano-100M-ONNX/moss_tts_decode_step.onnx': 489413L,
@@ -319,8 +320,14 @@ if (bundleMoss) {
             include payload.keySet()
             into 'moss/payload'
         }
+        from(modelDir) {
+            include 'LICENSE'
+            rename { 'MOSS-MODEL-LICENSE.txt' }
+            into 'moss'
+        }
         into(generated)
         doFirst {
+            if (!mossModelLicense.isFile()) logger.warn('MOSS model LICENSE not found next to payload; shipping model files without their license text')
             payload.each { name, size ->
                 def input = new File(modelDir, name)
                 if (!input.isFile() || size <= 0 || input.length() != size) {

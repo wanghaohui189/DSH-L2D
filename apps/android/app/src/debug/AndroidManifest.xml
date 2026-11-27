@@ -2,5 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application>
         <activity android:name=".ui.CosyVoiceReviewActivity" android:exported="false" />
+        <!-- 2026-11-27 (external audit): debug-only phone-control entry, kept out of the release manifest. -->
+        <receiver android:name=".phone.DebugPhoneActionReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="com.prts.client.DEBUG_PHONE_ACTION" />
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

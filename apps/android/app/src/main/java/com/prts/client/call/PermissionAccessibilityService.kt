@@ -221,7 +221,7 @@ class PermissionAccessibilityService : AccessibilityService() {
         }
         secondRoot?.recycle()
         DiagLog.write("phone-control.log",
-            "set_text ok=$ok label=$label len=${value.length} readback=${readback.take(20)} editables=${editables.size} matches=$matchCount")
+            "set_text ok=$ok label=$label len=${value.length} readback_len=${readback.length} editables=${editables.size} matches=$matchCount")
         return when {
             ok && readback.contains(value) -> true to "在「$label」里输入了「$value」"
             // 写进去了但控件不把内容暴露给无障碍（密码框/自绘输入框）：只回执「已发出」，别谎称回读成功。
