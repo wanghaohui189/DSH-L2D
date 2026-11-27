@@ -20,6 +20,12 @@ DSH L2D is an Android calling client for Live2D characters. DSH Go, DeepSeek Har
 > more). See [CHANGELOG](CHANGELOG.md) for the change history. Upstream copyright and license remain
 > with the upstream authors; project-owned modifications are released under [AGPL-3.0-only](LICENSE).
 > This repository publishes source code only. It does not distribute APKs or installers.
+>
+> **Character assets are not included**: the Whale (DeepSeek-chan) model is free-distributed by
+> 神宫凉子 (original art) and 霓虹猫_NeonNeko (Live2D rig); Ellen is copyright miHoYo (art by
+> 神宫凉子, model by 杨小唸). The authors prohibit redistribution of the model files, so obtain them
+> from the authors' pages. `call-motions/` uses Cubism standard parameters and works with any model;
+> motions under `trained-rigs/` are specific to the corresponding model.
 
 ## Install and make a call
 

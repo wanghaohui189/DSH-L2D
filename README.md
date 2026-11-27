@@ -18,6 +18,11 @@ DSH L2D 是一个 Android Live2D 通话客户端。DSH Go、DeepSeek Harness、A
 > 的源码，由本仓库维护者自 2026-11 起持续修改（Android 客户端、通话与语音链路等），改动记录见
 > [CHANGELOG](CHANGELOG.md)。上游版权与许可归上游作者；本仓库自有修改按
 > [AGPL-3.0-only](LICENSE) 发布。本仓库只发布源代码，不发布 APK 或安装包。
+>
+> **角色素材不在本仓库**：大肥鱼（DeepSeek-chan）由神宫凉子免费配布（原画及拆分：神宫凉子，
+> Live2D 建模：霓虹猫_NeonNeko）；艾莲版权归 miHoYo（画师 神宫凉子、建模 杨小唸）。两者的作者规范
+> 都禁止重新分发模型文件，请到作者页面（B 站「神宫凉子」）自行获取。仓库内的 `call-motions/`
+> 使用 Cubism 标准参数，可配任意模型；`trained-rigs/` 下的动作只适用于对应模型。
 
 ## 安装与通话
 
