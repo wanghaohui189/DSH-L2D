@@ -25,7 +25,8 @@ DSH L2D is an Android calling client for Live2D characters. DSH Go, DeepSeek Har
 > 神宫凉子 (original art) and 霓虹猫_NeonNeko (Live2D rig); Ellen is copyright miHoYo (art by
 > 神宫凉子, model by 杨小唸). The authors prohibit redistribution of the model files, so obtain them
 > from the authors' pages. `call-motions/` uses Cubism standard parameters and works with any model;
-> motions under `trained-rigs/` are specific to the corresponding model.
+> motions under `trained-rigs/` are specific to the corresponding model. See the
+> [custom assets guide](docs/CUSTOM-ASSETS.en.md) for how to supply models, touch voices and motions.
 
 ## Install and make a call
 

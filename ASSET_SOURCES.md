@@ -14,4 +14,4 @@ Project-owned source is licensed under [AGPL-3.0-only](LICENSE). Runtime assets 
 | 背景 / Backgrounds | 完整版保留带 CC0 来源记录的背景图。 / The APK retains backgrounds with recorded CC0 sources. |
 | 动作 / Motions | `call-motions/` 使用 Cubism 标准参数（如 `ParamAngleX/Y/Z`、`ParamBodyAngleX/Y/Z`），可配合任意含标准参数的模型；`trained-rigs/whale`、`trained-rigs/ellen` 是针对大肥鱼、艾莲模型训练的动作，需先从作者处取得对应模型才能使用。 / `call-motions/` uses Cubism standard parameters and works with any model that exposes them; `trained-rigs/whale` and `trained-rigs/ellen` are rig-specific motions and require the corresponding model. |
 
-[构建与资源配置](docs/BUILDING.md) · [Build and assets](docs/BUILDING.en.md) · [Third-party notices](THIRD_PARTY_LICENSES.md)
+[构建与资源配置](docs/BUILDING.md) · [Build and assets](docs/BUILDING.en.md) · [自备素材指南 / Custom assets](docs/CUSTOM-ASSETS.md) · [Third-party notices](THIRD_PARTY_LICENSES.md)

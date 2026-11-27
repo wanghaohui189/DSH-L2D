@@ -23,6 +23,7 @@ DSH L2D 是一个 Android Live2D 通话客户端。DSH Go、DeepSeek Harness、A
 > Live2D 建模：霓虹猫_NeonNeko）；艾莲版权归 miHoYo（画师 神宫凉子、建模 杨小唸）。两者的作者规范
 > 都禁止重新分发模型文件，请到作者页面（B 站「神宫凉子」）自行获取。仓库内的 `call-motions/`
 > 使用 Cubism 标准参数，可配任意模型；`trained-rigs/` 下的动作只适用于对应模型。
+> 自备模型、触摸语音与动作的具体做法见[自备素材指南](docs/CUSTOM-ASSETS.md)。
 
 ## 安装与通话
 

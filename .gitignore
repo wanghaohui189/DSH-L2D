@@ -50,6 +50,9 @@ sentencepiece-src/
 apps/android/DSH-L2D-Public/
 assets/touch-voices/
 **/touch-voices/
+# Character assets: authors' models are not redistributed (see docs/CUSTOM-ASSETS.md)
+*.moc3
+**/assets/live2d/
 dsh_write_probe.txt
 relay-secrets.json
 **/relay-secrets.json
